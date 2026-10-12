@@ -1,0 +1,19 @@
+{
+  "description": "origin-power-media-gen hooks：SessionStart 注入插件根路径与配置状态。",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "process",
+            "command": "node",
+            "args": ["${ZCODE_PLUGIN_ROOT}/hooks/session-start.mjs"],
+            "timeoutMs": 5000,
+            "statusMessage": "media-gen: preparing session context…"
+          }
+        ]
+      }
+    ]
+  }
+}

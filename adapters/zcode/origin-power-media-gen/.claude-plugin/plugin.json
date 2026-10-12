@@ -1,0 +1,17 @@
+{
+  "name": "origin-power-media-gen",
+  "version": "1.1.0",
+  "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video (4-15s) and music (WAV). No MCP — ships a bundled CLI driven by a skill; a SessionStart hook injects the plugin root path and config status.",
+  "description_i18n": {
+    "en": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video (4-15s) and music (WAV). No MCP — ships a bundled CLI driven by a skill; a SessionStart hook injects the plugin root path and config status.",
+    "zh-CN": "媒体生成插件（Origin Power MaaS）：文生图、图片编辑、视频（4-15 秒）、音乐生成（WAV）。无 MCP，随插件分发 CLI，skill 触发，SessionStart 注入插件根路径与配置状态。"
+  },
+  "author": { "name": "Ikki", "url": "https://github.com/Ikki6666" },
+  "homepage": "https://github.com/Ikki6666/origin-power-media-gen",
+  "repository": "https://github.com/Ikki6666/origin-power-media-gen",
+  "license": "MIT",
+  "keywords": ["media-generation", "image-generation", "video-generation", "music-generation"],
+  "skills": "./skills",
+  "hooks": "./hooks/hooks.json",
+  "commands": "./commands"
+}
