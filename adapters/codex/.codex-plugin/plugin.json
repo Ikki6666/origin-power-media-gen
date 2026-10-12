@@ -1,13 +1,12 @@
 {
   "version": "1.1.0",
   "name": "origin-power-media-gen",
-  "mcpServers": "./.mcp.json",
-  "description": "媒体生成插件：给 Codex 提供文生图、图片编辑、视频生成、音乐生成能力（Origin Power MaaS 平台）。五个工具：generate_image / edit_image / generate_video / generate_music / task_status，全部异步任务制，插件内自动轮询并落盘。\n\nMCP server 通过 npx 分发（npm: origin-power-media-gen-mcp），业务逻辑与 Pi 原生扩展共用 origin-power-media-gen-core。",
+  "description": "媒体生成插件：给 Codex 提供文生图、图片编辑、视频生成、音乐生成能力（Origin Power MaaS 平台）。随插件分发 CLI，skill 触发，全部异步任务制，自动轮询并落盘。\n\n业务逻辑与 Pi 原生扩展共用 origin-power-media-gen-core。",
   "author": { "name": "Ikki" },
   "homepage": "https://github.com/Ikki6666/origin-power-media-gen",
   "repository": "https://github.com/Ikki6666/origin-power-media-gen",
   "license": "MIT",
-  "keywords": ["media-generation", "image-generation", "video-generation", "music-generation", "mcp"],
+  "keywords": ["media-generation", "image-generation", "video-generation", "music-generation", "cli"],
   "skills": "./skills/",
   "interface": {
     "displayName": "媒体生成",
