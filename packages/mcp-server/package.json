@@ -8,6 +8,7 @@
   },
   "main": "./server.js",
   "files": ["server.js", "README.md", "LICENSE"],
+  "publishConfig": { "registry": "https://registry.npmjs.org/" },
   "dependencies": {
     "origin-power-media-gen-core": "^1.0.0"
   },

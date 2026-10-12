@@ -9,10 +9,14 @@
   },
   "files": [
     "index.js",
+    "index.d.ts",
     "src/",
     "README.md",
     "LICENSE"
   ],
   "license": "MIT",
-  "types": "./index.d.ts"
+  "types": "./index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
