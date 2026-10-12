@@ -61,5 +61,6 @@ description: Generate or edit images, create videos (4-15s), and compose music (
 本技能只描述通用行为。不同 agent 的 CLI 位置、调用方式、插件根路径来源和工具形态，请参考当前平台的 reference：
 
 - Codex：`references/codex.md`
+- Claude Code：`references/claude-code.md`
 - Zcode：`references/zcode.md`
 - MCP：`references/mcp.md`

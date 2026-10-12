@@ -30,6 +30,15 @@ codex plugin add origin-power-media-gen@origin-power
 
 装好后重启 Codex，开始新会话。
 
+### Claude Code
+
+```bash
+claude plugin marketplace add Ikki6666/origin-power-media-gen
+claude plugin install origin-power-media-gen@origin-power
+```
+
+装好后重启 Claude Code，开始新会话。
+
 ### Zcode
 
 把 `dist/plugins/zcode` 当作插件根目录导入。

@@ -1,6 +1,6 @@
 # Plugin architecture
 
-This repo separates capability logic from platform distribution. The source of truth is a shared core, one CLI, and one skill. Codex/Zcode/MCP are thin adapters.
+This repo separates capability logic from platform distribution. The source of truth is a shared core, one CLI, and one skill. Codex/Claude Code/Zcode/MCP are thin adapters.
 
 ## Source of truth
 

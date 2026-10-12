@@ -1,0 +1,20 @@
+{
+  "name": "origin-power",
+  "description": "Media generation plugins built on Origin Power MaaS.",
+  "owner": {
+    "name": "Ikki",
+    "url": "https://github.com/Ikki6666"
+  },
+  "plugins": [
+    {
+      "name": "origin-power-media-gen",
+      "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video, and music.",
+      "version": "1.1.0",
+      "source": "./",
+      "author": {
+        "name": "Ikki",
+        "url": "https://github.com/Ikki6666"
+      }
+    }
+  ]
+}

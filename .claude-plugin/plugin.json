@@ -1,0 +1,19 @@
+{
+  "name": "origin-power-media-gen",
+  "version": "1.1.0",
+  "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video, and music.",
+  "author": {
+    "name": "Ikki",
+    "url": "https://github.com/Ikki6666"
+  },
+  "homepage": "https://github.com/Ikki6666/origin-power-media-gen",
+  "repository": "https://github.com/Ikki6666/origin-power-media-gen",
+  "license": "MIT",
+  "keywords": [
+    "media-generation",
+    "image-generation",
+    "video-generation",
+    "music-generation",
+    "skills"
+  ]
+}
