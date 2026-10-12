@@ -1,0 +1,25 @@
+{
+  "name": "pi-origin-power-media-gen",
+  "version": "1.1.0",
+  "description": "Pi 媒体生成扩展：文生图、图片编辑、视频生成、音乐生成（Origin Power MaaS 平台，逻辑来自 origin-power-media-gen-core）",
+  "type": "module",
+  "files": ["extensions", "README.md", "LICENSE"],
+  "publishConfig": { "registry": "https://registry.npmjs.org/" },
+  "pi": { "extensions": ["./extensions/index.ts"] },
+  "dependencies": {
+    "origin-power-media-gen-core": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-agent-core": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "keywords": ["pi-package", "media-generation", "image-generation", "video-generation", "music-generation"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikki6666/origin-power-media-gen.git"
+  }
+}
