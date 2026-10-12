@@ -1,0 +1,15 @@
+{
+  "name": "origin-power-media-gen-zcode",
+  "plugins": [
+    {
+      "name": "origin-power-media-gen",
+      "source": "./adapters/zcode/origin-power-media-gen",
+      "version": "1.1.0",
+      "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video, music. No MCP — a bundled CLI driven by a skill.",
+      "displayName": "媒体生成",
+      "displayName_i18n": { "zh-CN": "媒体生成" },
+      "description_i18n": { "zh-CN": "媒体生成插件（Origin Power MaaS）：文生图、图片编辑、视频、音乐生成。无 MCP，随插件分发 CLI，skill 触发。" },
+      "category": "developer-tools"
+    }
+  ]
+}
