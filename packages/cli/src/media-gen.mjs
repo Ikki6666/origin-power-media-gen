@@ -3,7 +3,7 @@
  * origin-power-media-gen CLI（ZCode 插件形态，无 MCP）
  *
  * 随插件分发的媒体生成命令行：文生图 / 图片编辑 / 视频 / 音乐（Origin Power MaaS 平台）。
- * 业务逻辑来自 vendored 的 packages/core 副本（scripts/core/，与 monorepo 的 packages/core 保持同步）。
+ * 业务逻辑来自 origin-power-media-gen-core，插件构建时会将其打包为本地 vendored core。
  *
  * 子命令：
  *   image  <prompt>            文生图（一步完成：创建 + 轮询 + 下载）
@@ -34,7 +34,7 @@ import {
 	extractStatus,
 	normalizeStatus,
 	sleep,
-} from "./core/index.js";
+} from "origin-power-media-gen-core";
 
 class UsageError extends Error {}
 

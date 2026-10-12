@@ -7,7 +7,11 @@
   "workspaces": ["packages/*"],
   "publishConfig": { "registry": "https://registry.npmjs.org/" },
   "scripts": {
-    "test:core": "node --test packages/core/test/"
+    "build:plugins": "node scripts/build-plugins.mjs",
+    "check:plugins": "node scripts/check-plugins.mjs",
+    "test:core": "node --test packages/core/test/core.test.js",
+    "test:cli": "node --test packages/cli/test/cli.test.js",
+    "test": "npm run test:core && npm run test:cli && npm run build:plugins && npm run check:plugins"
   },
   "license": "MIT",
   "repository": {

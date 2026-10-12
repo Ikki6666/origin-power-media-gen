@@ -1,0 +1,15 @@
+{
+  "name": "origin-power-media-gen-cli",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Bundled media generation CLI for Origin Power MaaS plugins",
+  "type": "module",
+  "main": "./src/media-gen.mjs",
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "origin-power-media-gen-core": "^1.0.0"
+  },
+  "license": "MIT"
+}
