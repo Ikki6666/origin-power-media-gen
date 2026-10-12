@@ -12,7 +12,7 @@
   "interface": {
     "displayName": "媒体生成",
     "shortDescription": "文生图 / 图片编辑 / 视频 / 音乐生成",
-    "longDescription": "通过 Origin Power MaaS 平台为 Codex 提供多模态生成能力：文生图（Qwen-Image-2.1-Turbo）、图片编辑、视频生成（minimax-h3）、音乐生成（MiniMax-Music3）。全部异步任务制，自动轮询并下载产物到本地。",
+    "longDescription": "通过 Origin Power MaaS 平台为 Codex 提供多模态生成能力：文生图（Qwen-Image-2.1）、图片编辑、视频生成（minimax-h3）、音乐生成（MiniMax-Music3）。全部异步任务制，自动轮询并下载产物到本地。",
     "developerName": "Ikki",
     "category": "Engineering",
     "capabilities": ["Interactive"],

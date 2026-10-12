@@ -273,12 +273,12 @@ async function toolTaskStatus(args) {
 const TOOLS = [
 	{
 		name: "generate_image",
-		description: "通过 Origin Power MaaS 平台提交文生图任务（Qwen-Image-2.1-Turbo，异步）。自动轮询直至完成，产物下载保存到本地并以内嵌图片返回。典型耗时 10-60 秒，失败不计费。",
+		description: "通过 Origin Power MaaS 平台提交文生图任务（Qwen-Image-2.1，异步）。自动轮询直至完成，产物下载保存到本地并以内嵌图片返回。典型耗时 10-60 秒，失败不计费。",
 		inputSchema: {
 			type: "object",
 			properties: {
 				prompt: { type: "string", description: "文生图提示词，不能为空" },
-				model: { type: "string", description: "模型 ID，默认 Qwen-Image-2.1-Turbo；需在白名单内" },
+				model: { type: "string", description: "模型 ID，默认 Qwen-Image-2.1；需在白名单内" },
 				n: { type: "integer", description: "输出张数 1-10，按张计费", default: 1 },
 				size: { type: "string", description: "输出尺寸，如 1024x1024 / 1536x1024 / 1024x1536" },
 				quality: { type: "string", description: "画质档位" },
@@ -291,13 +291,13 @@ const TOOLS = [
 	},
 	{
 		name: "edit_image",
-		description: "通过 Origin Power MaaS 平台提交图片编辑任务（Qwen-Image-2.1-Turbo，异步）：在原图上按指令修改。本地文件路径自动转 Base64 上传，也支持公网 URL。1-4 张输入图。",
+		description: "通过 Origin Power MaaS 平台提交图片编辑任务（Qwen-Image-2.1，异步）：在原图上按指令修改。本地文件路径自动转 Base64 上传，也支持公网 URL。1-4 张输入图。",
 		inputSchema: {
 			type: "object",
 			properties: {
 				images: { type: "array", items: { type: "string" }, description: "输入图片：本地文件路径或 http(s) URL，1-4 张，顺序即输入顺序" },
 				prompt: { type: "string", description: "编辑指令：描述要在原图上做的修改" },
-				model: { type: "string", description: "模型 ID，默认 Qwen-Image-2.1-Turbo" },
+				model: { type: "string", description: "模型 ID，默认 Qwen-Image-2.1" },
 				n: { type: "integer", description: "输出图片数量", default: 1 },
 				size: { type: "string", description: "输出尺寸（如 1024x1024）" },
 				quality: { type: "string", description: "画质档位" },

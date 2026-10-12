@@ -31,7 +31,7 @@ export const config = {
 			.filter(Boolean);
 		return custom.length > 0
 			? custom
-			: ["Qwen-Image-2.1-Turbo", "minimax-h3", "MiniMax-Music3"];
+			: ["Qwen-Image-2.1", "minimax-h3", "MiniMax-Music3"];
 	},
 };
 
