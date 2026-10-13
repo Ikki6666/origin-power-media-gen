@@ -23,3 +23,38 @@ test("CLI: unknown command exits 2", async () => {
 		(error) => error.code === 2,
 	);
 });
+
+test("CLI: image --n 0 exits 2", async () => {
+	await assert.rejects(
+		run(process.execPath, [cli, "image", "test", "--n", "0"]),
+		(error) => error.code === 2,
+	);
+});
+
+test("CLI: video --duration 3 exits 2", async () => {
+	await assert.rejects(
+		run(process.execPath, [cli, "video", "test", "--duration", "3"]),
+		(error) => error.code === 2,
+	);
+});
+
+test("CLI: music without --style exits 2", async () => {
+	await assert.rejects(
+		run(process.execPath, [cli, "music", "lyrics"]),
+		(error) => error.code === 2,
+	);
+});
+
+test("CLI: edit without --images exits 2", async () => {
+	await assert.rejects(
+		run(process.execPath, [cli, "edit", "test"]),
+		(error) => error.code === 2,
+	);
+});
+
+test("CLI: music --seed non-integer exits 2 before network call", async () => {
+	await assert.rejects(
+		run(process.execPath, [cli, "music", "lyrics", "--style", "pop", "--seed", "abc"]),
+		(error) => error.code === 2,
+	);
+});

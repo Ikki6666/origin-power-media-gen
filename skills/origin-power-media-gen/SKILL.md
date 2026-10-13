@@ -27,6 +27,8 @@ description: Generate or edit images, create videos (4-15s), and compose music (
 | 查询/等待/取消任务 | `status <task_id>` |
 | 查看可用模型 | `models` |
 
+注意：`image_` 前缀的任务 ID 无法区分文生图和图片编辑。如果 task_id 来自 `edit` 命令，查询时必须显式传 `--kind image-edit`，否则会查错端点返回 404。
+
 ## 关键约束
 
 - **音乐必须提供歌词**：`music` 的第一个参数是歌词本身，模型逐字演唱，不代写。用户没给歌词时，先写好歌词再调用。`--style` 必填且非空。

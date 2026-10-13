@@ -212,9 +212,11 @@ async function toolGenerateVideo(args) {
 async function toolGenerateMusic(args) {
 	if (!args.input?.trim()) throw new MaasError("input（歌词）不能为空", 422, undefined);
 	if (!args.instructions?.trim()) throw new MaasError("instructions（风格描述）不能为空字符串", 422, undefined);
+	const { resolveModel } = await import("origin-power-media-gen-core");
+	const model = await resolveModel(args.model, ["music"]);
 
 	const body = {
-		model: "MiniMax-Music3",
+		model,
 		input: args.input,
 		instructions: args.instructions,
 		max_new_tokens: args.max_new_tokens ?? 3000,
@@ -330,10 +332,11 @@ const TOOLS = [
 	},
 	{
 		name: "generate_music",
-		description: "通过 Origin Power MaaS 平台提交文生音乐任务（MiniMax-Music3，输出 WAV）。歌词必须提供（模型逐字演唱原文，不代写）；instructions 为风格描述必填。自动轮询并下载落盘。",
+		description: "通过 Origin Power MaaS 平台提交文生音乐任务（默认 MiniMax-Music3，输出 WAV）。歌词必须提供（模型逐字演唱原文，不代写）；instructions 为风格描述必填。自动轮询并下载落盘。",
 		inputSchema: {
 			type: "object",
 			properties: {
+				model: { type: "string", description: "模型 ID，默认自动匹配 MiniMax-Music3；需在白名单内" },
 				input: { type: "string", description: "歌词（逐字演唱，不代写）。支持段落标签 [Intro]/[Verse]/[Chorus]/[Bridge]/[Outro] 等；纯音乐用 [Inst]" },
 				instructions: { type: "string", description: "风格描述，非空，如「流行,女声,钢琴,温暖的,中速」" },
 				max_new_tokens: { type: "integer", description: "时长上限 token 数（25 token ≈ 1 秒，是上限而非目标）", default: 3000 },

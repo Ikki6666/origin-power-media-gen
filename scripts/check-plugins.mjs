@@ -53,9 +53,11 @@ async function validateAdapterIsThin(adapterDir, label) {
 }
 
 const cliPackage = await readJson(join(repoRoot, "packages", "cli", "package.json"));
+const rootPackage = await readJson(join(repoRoot, "package.json"));
 const codexManifest = await readJson(join(repoRoot, "dist", "plugins", "codex", ".codex-plugin", "plugin.json"));
 const zcodeManifest = await readJson(join(repoRoot, "dist", "plugins", "zcode", ".zcode-plugin", "plugin.json"));
 
+check(rootPackage.version === cliPackage.version, `root package version ${rootPackage.version} != CLI version ${cliPackage.version}`);
 check(codexManifest.version === cliPackage.version, `codex plugin version ${codexManifest.version} != CLI version ${cliPackage.version}`);
 check(zcodeManifest.version === cliPackage.version, `zcode plugin version ${zcodeManifest.version} != CLI version ${cliPackage.version}`);
 

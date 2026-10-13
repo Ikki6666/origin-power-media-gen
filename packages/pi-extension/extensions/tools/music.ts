@@ -2,7 +2,7 @@
  * maas_generate_music — 文生音乐（POST /api/v3/musics，异步任务）
  *
  * 接口约定：
- * - 模型固定 MiniMax-Music3，输出 WAV（32000Hz/16bit/立体声），生成约 4-6 倍实时
+ * - 模型默认 MiniMax-Music3（可通过 model 参数覆盖），输出 WAV（32000Hz/16bit/立体声），生成约 4-6 倍实时
  * - 必填 input（歌词，模型逐字演唱原文，不代写）+ instructions（风格描述，非空）
  * - input 支持段落结构标签：[Intro] [Verse] [Pre Chorus] [Chorus] [Bridge] [Outro] [Inst] 等
  * - max_new_tokens 是时长上限而非目标（25 token ≈ 1 秒，默认 3000 ≈ 2 分钟）
@@ -15,7 +15,7 @@ import { Type } from "typebox";
 import type { ExtensionAPI, AgentToolResult } from "@earendil-works/pi-coding-agent";
 import type { MaasConfig } from "../config.ts";
 import { resolveOutputDir } from "../config.ts";
-import { maasRequest, MaasError } from "../api.ts";
+import { maasRequest, resolveModel, MaasError } from "../api.ts";
 import { downloadFile, pollTask } from "../tasks.ts";
 
 export interface MusicToolDetails {
@@ -27,6 +27,11 @@ export interface MusicToolDetails {
 }
 
 const MusicParams = Type.Object({
+	model: Type.Optional(
+		Type.String({
+			description: "模型 ID，默认自动匹配 MiniMax-Music3；需在白名单内",
+		}),
+	),
 	input: Type.String({
 		description:
 			"歌词（模型逐字演唱原文，不代写）。支持段落标签 [Intro]/[Verse]/[Chorus]/[Bridge]/[Outro] 等；纯音乐用 [Inst]",
@@ -51,9 +56,9 @@ export function createGenerateMusicTool(pi: ExtensionAPI, getConfig: () => MaasC
 		name: "maas_generate_music",
 		label: "生成音乐",
 		description:
-			"通过Origin Power MaaS 平台提交文生音乐任务（MiniMax-Music3，输出 WAV）。歌词必须由调用方提供（模型逐字演唱原文），" +
+			"通过Origin Power MaaS 平台提交文生音乐任务（默认 MiniMax-Music3，输出 WAV）。歌词必须由调用方提供（模型逐字演唱原文），" +
 			"想要自动出词先用对话模型生成歌词再传入。提交后自动轮询直至完成，音频下载保存到本地并返回路径。",
-		promptSnippet: "用Origin Power MaaS 生成音乐（MiniMax-Music3，需提供歌词）",
+		promptSnippet: "用Origin Power MaaS 生成音乐（需提供歌词）",
 		promptGuidelines: [
 			"maas_generate_music 的 input 是歌词本身，模型不代写；用户没有给歌词时先用对话模型写好再传入",
 			"instructions 必填且非空（如「流行,女声,钢琴,温暖的,中速」），空字符串会被拒绝",
@@ -66,13 +71,15 @@ export function createGenerateMusicTool(pi: ExtensionAPI, getConfig: () => MaasC
 			if (!params.instructions.trim())
 				throw new MaasError("instructions（风格描述）不能为空字符串", 422, undefined);
 
+			const model = await resolveModel(cfg, params.model, ["music"]);
+
 			onUpdate?.({
-				content: [{ type: "text", text: "提交音乐生成任务（MiniMax-Music3）…" }],
+				content: [{ type: "text", text: `提交音乐生成任务（${model}）…` }],
 				details: { task_id: "", status: "submitting", elapsedMs: 0 },
 			});
 
 			const body: Record<string, unknown> = {
-				model: "MiniMax-Music3",
+				model,
 				input: params.input,
 				instructions: params.instructions,
 				max_new_tokens: params.max_new_tokens ?? 3000,

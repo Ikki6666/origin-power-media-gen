@@ -226,11 +226,12 @@ async function cmdMusic({ flags, positional }) {
 	if (!input) throw new UsageError('music 需要歌词（模型逐字演唱，不代写）。例：node media-gen.mjs music "[Verse]..." --style "流行,女声,钢琴"');
 	const instructions = flags.style;
 	if (!instructions?.trim()) throw new UsageError('music 需要 --style <风格描述>（非空），如 --style "流行,女声,钢琴,温暖的,中速"');
-	const body = { model: "MiniMax-Music3", input, instructions, max_new_tokens: intFlag(flags, "tokens", 3000) };
 	const seed = parseSeed(flags);
+	const model = await resolveModel(flags.model, ["music"]);
+	const body = { model, input, instructions, max_new_tokens: intFlag(flags, "tokens", 3000) };
 	if (seed !== undefined) body.seed = seed;
 
-	note("提交音乐生成任务（模型 MiniMax-Music3）…");
+	note(`提交音乐生成任务（模型 ${model}）…`);
 	const createRes = await maasRequest("/api/v3/musics", { method: "POST", body });
 	const taskId = createRes.body?.data?.id;
 	if (!taskId) throw new MaasError("创建任务未返回 data.id", 500, createRes.body);
@@ -254,6 +255,7 @@ async function cmdVideo({ flags, positional }) {
 	if (!prompt) throw new UsageError('video 需要提示词。例：node media-gen.mjs video "海边日落，镜头缓推"');
 	const duration = intFlag(flags, "duration", 6);
 	if (duration < 4 || duration > 15) throw new UsageError("--duration 需为 4-15 的整数秒");
+	const seed = parseSeed(flags);
 	const model = await resolveModel(flags.model, ["minimax", "video"]);
 	const body = {
 		model,
@@ -263,7 +265,6 @@ async function cmdVideo({ flags, positional }) {
 		ratio: flags.ratio || "16:9",
 		num_inference_steps: intFlag(flags, "steps", 50),
 	};
-	const seed = parseSeed(flags);
 	if (seed !== undefined) body.seed = seed;
 	if (flags["first-frame"]) body.input_reference = await toFrameRef(flags["first-frame"]);
 	if (flags["last-frame"]) body.last_frame_reference = await toFrameRef(flags["last-frame"]);

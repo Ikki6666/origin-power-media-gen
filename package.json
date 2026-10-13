@@ -1,7 +1,7 @@
 {
   "name": "origin-power-media-gen",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "多 agent 媒体生成插件 monorepo：Pi 原生扩展 + 通用 MCP server（Codex / Claude Code / Cursor 等），Origin Power MaaS 平台",
   "type": "module",
   "workspaces": ["packages/*"],
