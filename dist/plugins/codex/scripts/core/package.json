@@ -1,6 +1,6 @@
 {
   "name": "origin-power-media-gen-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Origin Power MaaS 媒体生成核心客户端：鉴权、模型校验、异步任务轮询、产物下载（被 pi 扩展与 MCP server 共用）",
   "type": "module",
   "main": "./index.js",

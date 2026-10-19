@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "name": "origin-power-media-gen",
   "description": "媒体生成插件：给 Codex 提供文生图、图片编辑、视频生成、音乐生成能力（Origin Power MaaS 平台）。随插件分发 CLI，skill 触发，全部异步任务制，自动轮询并落盘。\n\n业务逻辑与 Pi 原生扩展共用 origin-power-media-gen-core。",
   "author": { "name": "Ikki" },

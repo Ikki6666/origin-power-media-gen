@@ -4,7 +4,7 @@
     {
       "name": "origin-power-media-gen",
       "source": "./origin-power-media-gen",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video, music. No MCP — a bundled CLI driven by a skill.",
       "displayName": "媒体生成",
       "displayName_i18n": { "zh-CN": "媒体生成" },

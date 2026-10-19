@@ -1,6 +1,6 @@
 {
   "name": "origin-power-media-gen",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video (4-15s) and music (WAV). No MCP — ships a bundled CLI driven by a skill; a SessionStart hook injects the plugin root path and config status.",
   "description_i18n": {
     "en": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video (4-15s) and music (WAV). No MCP — ships a bundled CLI driven by a skill; a SessionStart hook injects the plugin root path and config status.",

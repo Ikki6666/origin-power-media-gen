@@ -9,7 +9,7 @@
     {
       "name": "origin-power-media-gen",
       "description": "Media generation plugin (Origin Power MaaS): text-to-image, image editing, video, and music.",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "source": "./",
       "author": {
         "name": "Ikki",

@@ -1,6 +1,6 @@
 {
   "name": "origin-power-media-gen-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "通用媒体生成 MCP server：给 Codex / Claude Code / Cursor / Windsurf 等提供文生图、图片编辑、视频、音乐生成工具（Origin Power MaaS 平台）",
   "type": "module",
   "bin": {
@@ -16,7 +16,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "origin-power-media-gen-core": "^1.0.0"
+    "origin-power-media-gen-core": "^1.0.2"
   },
   "keywords": [
     "mcp",
