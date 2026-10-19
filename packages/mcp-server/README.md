@@ -37,7 +37,7 @@ codex plugin add origin-power-media-gen@origin-power
 | 变量 | 说明 | 默认 |
 |---|---|---|
 | `MEDIA_GEN_API_KEY` | 鉴权 Key（回退 `YUANLI_API_KEY` → `AGW_API_KEY`） | — |
-| `MEDIA_GEN_BASE_URL` | 网关地址 | `http://api.dev.origin-power.com` |
+| `MEDIA_GEN_BASE_URL` | 网关地址 | `http://api.origin-power.com` |
 | `MEDIA_GEN_MEDIA_DIR` | 产物根目录 | `~/.media-gen` |
 | `MEDIA_GEN_MODELS` | 模型白名单覆盖（逗号分隔） | `Qwen-Image-2.1,minimax-h3,MiniMax-Music3` |
 

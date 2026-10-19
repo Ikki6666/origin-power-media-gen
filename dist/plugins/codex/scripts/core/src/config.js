@@ -16,7 +16,7 @@ const env = process.env;
 /** 配置快照（读取一次环境变量；进程内复用） */
 export const config = {
 	get baseUrl() {
-		return (env.MEDIA_GEN_BASE_URL || env.YUANLI_BASE_URL || "http://api.dev.origin-power.com").replace(/\/+$/, "");
+		return (env.MEDIA_GEN_BASE_URL || env.YUANLI_BASE_URL || "http://api.origin-power.com").replace(/\/+$/, "");
 	},
 	get apiKey() {
 		return env.MEDIA_GEN_API_KEY || env.YUANLI_API_KEY || env.AGW_API_KEY;

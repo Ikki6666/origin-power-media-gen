@@ -90,7 +90,7 @@ export MEDIA_GEN_API_KEY=...
 可选：
 
 ```bash
-export MEDIA_GEN_BASE_URL=http://api.dev.origin-power.com
+export MEDIA_GEN_BASE_URL=http://api.origin-power.com
 export MEDIA_GEN_MEDIA_DIR=~/.media-gen
 export MEDIA_GEN_MODELS=Qwen-Image-2.1,minimax-h3,MiniMax-Music3
 ```

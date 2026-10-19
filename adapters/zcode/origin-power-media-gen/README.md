@@ -19,7 +19,7 @@ No MCP server: the plugin ships a bundled CLI (`scripts/media-gen.mjs`, vendored
 | Variable | Description | Default |
 |---|---|---|
 | `MEDIA_GEN_API_KEY` | Auth key (falls back to `YUANLI_API_KEY`, then `AGW_API_KEY`) | — |
-| `MEDIA_GEN_BASE_URL` | Gateway base URL | `http://api.dev.origin-power.com` |
+| `MEDIA_GEN_BASE_URL` | Gateway base URL | `http://api.origin-power.com` |
 | `MEDIA_GEN_MEDIA_DIR` | Artifact root | `~/.media-gen` |
 | `MEDIA_GEN_MODELS` | Model whitelist override (comma separated) | `Qwen-Image-2.1,minimax-h3,MiniMax-Music3` |
 
